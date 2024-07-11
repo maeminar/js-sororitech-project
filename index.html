@@ -23,6 +23,10 @@
     <main>
       <section class="first_section">
         <div class="first_section_text">
+          <div class="bloc-logo">
+            <canvas id="logo-canvas"></canvas>
+            <a href="index.html" class="logo-mask">Granim.js</a>
+        </div>
           <h1>SororiTech, réécrivons les codes</h1>
           <p>
             Le secteur de la technologie souffre d'une sous-représentation
@@ -35,59 +39,72 @@
             l'impact des femmes dans la tech des annales historiques.
           </p>
         </div>
-        <img data-aos="zoom-in-up" src="img/image2.jpg" alt="image femme ordinateur" />
+        <div class="first_section_image_container">
+          <img data-aos="zoom-in-up" src="img/img_accueil.jpg" alt="image code" />
+        </div>
       </section>
       <section class="second_section">
         <div data-aos="zoom-in-right" class="image-container">
+          <a href="https://fr.wikipedia.org/wiki/Roberta_Williams" >  
           <img
             class="hover-img"
             src="img/ada_lovelace.png"
             alt="Ada Lovelace"
           />
           <h2 class="title-hover">Ada Lovelace</h2>
+        </a>
         </div>
         <div data-aos="zoom-in-up" class="image-container">
+          <a href="https://fr.wikipedia.org/wiki/Roberta_Williams" >  
           <img
             class="hover-img"
             src="img/roberta_williams.png"
             alt="Roberta Williams"
           />
           <h2 class="title-hover">Roberta Williams</h2>
+        </a>
         </div>
         <div data-aos="zoom-in-left" class="image-container">
+          <a href="https://fr.wikipedia.org/wiki/Roberta_Williams" >
           <img
             class="hover-img"
             src="img/margaret_hamilton.png"
             alt="Margaret Hamilton"
           />
           <h2 class="title-hover">Margaret Hamilton</h2>
+        </a>
         </div>
       </section>
+      <div class="carousel" aria-live="polite" aria-label="Image Carousel">
+        <div class="carousel-track"></div>
+      </div>
       <section id="last_section">
-    <div id="card-container" data-aos="fade-up"
-    data-aos-duration="3000">
-      <h3>17%</h3>
-      <p>La part des étudiantes en Informatique et science informatiques en cycle Ingénieur
-      </p>
-    </div>
-    <div id="card-container" data-aos="fade-up"
-    data-aos-duration="3000">
-      <h3>6%</h3><p>La part des étudiantes en BTS informatique</p>
-    </div>
-    <div id="card-container" data-aos="fade-up"
-    data-aos-duration="3000">
-      <h3>23%</h3><p>La part des femmes exerçant une profession numérique en 2022</p>
-    </div>
-    </section>
+        <div class="card" data-aos="fade-up" data-aos-duration="3000">
+          <h3 id="targetId">17%</h3>
+          <p>La part des étudiantes en Informatique et sciences informatiques en cycle Ingénieur</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-duration="3000">
+          <h3>6%</h3>
+          <p>La part des étudiantes en BTS informatique</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-duration="3000">
+          <h3>23%</h3>
+          <p>La part des femmes exerçant une profession numérique en 2022</p>
+        </div>
+      </section>
+      
     </main>
     <footer>
         <ul>
             <li><img class="footer-logo" src="img/logo.png" alt="SororiTech Logo" /></li>
             <li><p>© 2024 Emma MINARY | All Rights Reserved.</p></li>
+            <li><a href="https://maeminar.github.io/Portfolio_desktop_version/">Portfolio</a></li>
+            <li><a href="https://github.com/maeminar">Github</a></li>
     </ul>
       </div>
     </footer>
   </body>
+  <script src="granim.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();

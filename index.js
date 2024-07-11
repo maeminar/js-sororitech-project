@@ -1,4 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
+  var granimInstance = new Granim({
+    element: "#logo-canvas",
+    direction: "left-right",
+    states: {
+      "default-state": {
+        gradients: [
+          ["#EB3349", "#F45C43"],
+          ["#FF8008", "#FFC837"],
+          ["#4CB8C4", "#3CD3AD"],
+          ["#24C6DC", "#514A9D"],
+          ["#FF512F", "#DD2476"],
+          ["#DA22FF", "#9733EE"],
+        ],
+        transitionSpeed: 2000,
+      },
+    },
+  });
+
   const IMG = document.querySelectorAll(".image-container");
 
   IMG.forEach(function (container) {
@@ -14,56 +32,95 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Caroussel
-  const images = document.querySelectorAll("img");
-  const navContainer = document.querySelector(".nav-container");
-  const totalImages = images.length;
-  let imageIndex = 0;
-  let interval;
+  const SLIDES_DATA = [
+    // tableau d'objets
+    {
+      src: "img/image1.jpg",
+      description:
+        "Travailler dans la tech m'a offert des opportunités incroyables de croissance et d'innovation. J'adore résoudre des problèmes complexes et créer des solutions qui impactent positivement la vie des gens. Clara, développeuse logiciel",
+    },
+    {
+      src: "img/image2.jpg",
+      description:
+        "Ce que j'aime le plus dans ma carrière en tech, c'est la capacité à diriger des projets fascinants et de travailler avec des équipes talentueuses du monde entier. La flexibilité du travail à distance est un énorme avantage pour l'équilibre vie professionnelle et vie personnelle. ",
+    },
+    {
+      src: "img/image3.jpg",
+      description:
+        "Dans la cybersécurité, les défis techniques sont stimulants et gratifiants. Toutefois, le manque de représentation féminine peut rendre l'intégration difficile, et j'ai dû lutter contre des stéréotypes sur mes compétences techniques",
+    },
+    {
+      src: "img/image4.jpg",
+      description:
+        "En tant que data scientist, j'adore explorer des données et découvrir des tendances cachées qui peuvent transformer les stratégies d'entreprise. C'est un domaine en pleine croissance avec beaucoup de potentiel.",
+    },
+    {
+      src: "img/image5.jpg",
+      description:
+        "Le design UX/UI est ma passion car il combine créativité et technologie pour améliorer l'expérience utilisateur. J'aime voir mes idées prendre vie et aider les gens à interagir plus facilement avec les produits numériques. ",
+    },
+    {
+      src: "img/image6.jpg",
+      description:
+        "Travailler comme architecte cloud m'a permis d'être à l'avant-garde des technologies émergentes et de jouer un rôle clé dans la transformation numérique des entreprises.",
+    },
+  ];
 
-  for (let i = 0; i < totalImages; i++) {
-    const button = document.createElement("button");
-    button.classList.add("nav-btn");
-    navContainer.appendChild(button);
+  const CAROUSEL = document.querySelector(".carousel-track");
+
+  const createSlide = ({ src, description }) => {
+    const SLIDE_ELEMENT = document.createElement("div");
+    SLIDE_ELEMENT.className = "slide";
+
+    const IMG_ELEMENT = document.createElement("img");
+    IMG_ELEMENT.src = src;
+    IMG_ELEMENT.alt = description;
+
+    const overlayElement = document.createElement("div");
+    overlayElement.className = "overlay";
+    overlayElement.textContent = description;
+
+    SLIDE_ELEMENT.append(IMG_ELEMENT, overlayElement);
+
+    return SLIDE_ELEMENT;
+  };
+
+  const populateCarouselTrack = (slides) => {
+    const fragment = document.createDocumentFragment();
+    slides.forEach((slide) => fragment.appendChild(createSlide(slide)));
+
+    // Duplicate slides to create a seamless loop effect
+    slides.forEach((slide) => fragment.appendChild(createSlide(slide)));
+
+    CAROUSEL.appendChild(fragment);
+
+    const slideWidth = parseInt(
+      getComputedStyle(document.documentElement).getPropertyValue(
+        "--slide-width"
+      )
+    );
+    const gapWidth = parseInt(
+      getComputedStyle(document.documentElement).getPropertyValue("--gap-width")
+    );
+    const totalWidth = (slideWidth + gapWidth) * slides.length;
+    const duplicatedTotalWidth = totalWidth * 2;
+    const halfTotalWidth = duplicatedTotalWidth / 2;
+
+    CAROUSEL.style.setProperty("--total-width", `${halfTotalWidth}px`);
+
+    const baseDuration = 40; // secondes | default = 40
+    const baseWidth = 5000; // px | default = 5000
+    const scrollDuration = (halfTotalWidth / baseWidth) * baseDuration;
+
+    CAROUSEL.style.setProperty("--scroll-duration", `${scrollDuration}s`);
+  };
+
+  populateCarouselTrack(SLIDES_DATA);
+
+  const countUp = new CountUp("targetId", 5234);
+  if (!countUp.error) {
+    countUp.start();
+  } else {
+    console.error(countUp.error);
   }
-
-  const buttons = document.querySelectorAll(".nav-btn");
-
-  buttons.forEach((button, index) => {
-    button.addEventListener("click", () => {
-      imageIndex = index;
-      updateSlider();
-      resetInterval();
-    });
-  });
-
-  function updateSlider() {
-    images.forEach((image) => {
-      image.classList.remove("image-active");
-    });
-    buttons.forEach((button) => {
-      button.classList.remove("btn-active");
-    });
-    images[imageIndex].classList.add("image-active");
-    buttons[imageIndex].classList.add("btn-active");
-  }
-
-  function nextImage() {
-    imageIndex++;
-    if (imageIndex > totalImages - 1) {
-      imageIndex = 0;
-    }
-    updateSlider();
-  }
-
-  function autoPlay() {
-    interval = setInterval(nextImage, 3000);
-  }
-
-  function resetInterval() {
-    clearInterval(interval);
-    autoPlay();
-  }
-
-  updateSlider();
-  autoPlay();
 });

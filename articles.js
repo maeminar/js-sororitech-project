@@ -1,6 +1,6 @@
 // https://www.chartjs.org/docs/latest/getting-started/
 
-// Mon diagramme en barre
+// DIAGRAMME EN BAR
 document.addEventListener("DOMContentLoaded", function () {
   const ctx = document.getElementById("myFirstChart");
   new Chart(ctx, {
@@ -23,5 +23,16 @@ document.addEventListener("DOMContentLoaded", function () {
         },
       },
     },
+  });
+
+  // FAQ ACCORDEON
+  const ACCORDEON_ITEM = document.querySelectorAll(".accordeon_item");
+
+  ACCORDEON_ITEM.forEach((item) => {
+    const HEADER = item.querySelector(".accordeon_header");
+
+    HEADER.addEventListener("click", () => {
+      item.classList.toggle("active");
+    });
   });
 });
