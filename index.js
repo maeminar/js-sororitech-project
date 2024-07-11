@@ -117,10 +117,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
   populateCarouselTrack(SLIDES_DATA);
 
-  const countUp = new CountUp("targetId", 5234);
-  if (!countUp.error) {
-    countUp.start();
-  } else {
-    console.error(countUp.error);
+  // COMPTEUR LIBRAIRIE ODOMETER
+  function createReverseOdometer(id, start, end, duration) {
+    const odometerElement = document.getElementById(id);
+    const odometer = new Odometer({
+      el: odometerElement,
+      value: start,
+    });
+
+    let currentNumber = start;
+    const intervalTime = 20;
+    const step = (start - end) / (duration / intervalTime);
+
+    const intervalId = setInterval(function () {
+      currentNumber -= step;
+      if (currentNumber <= end) {
+        currentNumber = end;
+        clearInterval(intervalId);
+      }
+      odometer.update(Math.round(currentNumber));
+    }, intervalTime);
   }
+
+  createReverseOdometer("odometer1", 100, 17, 4000);
+  createReverseOdometer("odometer2", 100, 6, 2000);
+  createReverseOdometer("odometer3", 100, 23, 2000);
 });

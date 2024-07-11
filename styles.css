@@ -84,6 +84,7 @@ body, h1, h2, nav, ul, li {
     display: flex;
     gap: var(--gap-width);
     animation: scroll var(--scroll-duration) linear infinite;
+    padding: 50px;
   }
   
   .slide {
@@ -114,6 +115,7 @@ body, h1, h2, nav, ul, li {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-left: 50px;
   }
   
   .slide:hover .overlay {
@@ -133,9 +135,7 @@ body, h1, h2, nav, ul, li {
     animation-play-state: paused;
   }
   
-
   /* FORMULAIRE*/
-
 .form {
     max-width: 600px;
     margin: 2rem auto;
@@ -310,8 +310,7 @@ body, h1, h2, nav, ul, li {
   transform: scale(1.2);
 }
 
-
-/* ACCUEIL, troisième section */
+/* ACCUEIL, troisième section CARD */
 
 #last_section {
   display: flex;
@@ -341,16 +340,25 @@ body, h1, h2, nav, ul, li {
 }
 
 .card h3 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin: 0 0 1rem;
   color: #333;
   text-align: center;
 }
 
-.card p {
+.card h2 {
   font-size: 1rem;
   color: #666;
   text-align: center;
+}
+
+.odometer {
+  font-size: 50px; /* Taille de police */
+  color: #333; /* Couleur du texte */
+}
+
+.card p {
+  font-size: 20px;
 }
 
 
@@ -415,7 +423,16 @@ body, h1, h2, nav, ul, li {
 }
 
 .accordeon_item.active .accordeon_content {
-  max-height: 900px;
+  max-height: 1000px;
+}
+
+.myFirstChart {
+  height: 50vh;
+  width: 50vw; 
+  max-width: 100%; 
+  max-height: 100%;
+  display: block;
+  margin: 0 auto;
 }
 
 /* FOOTER */
@@ -454,3 +471,4 @@ body, h1, h2, nav, ul, li {
     color: #ff6347;
   }
   
+ 

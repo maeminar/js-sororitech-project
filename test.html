@@ -3,16 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Granim Dégradé sur Texte</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Odometer.js Sens Inverse</title>
+    <!-- Inclusion de Odometer.js depuis un CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/odometer@0.4.8/odometer.min.js"></script>
+    <!-- Styles pour Odometer.js -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/odometer@0.4.8/themes/odometer-theme-default.css"
+    />
+    <style>
+      .odometer {
+        font-size: 3rem; /* Taille de police */
+        color: #333; /* Couleur du texte */
+      }
+    </style>
   </head>
   <body>
-    <div class="bloc-logo">
-      <canvas id="logo-canvas"></canvas>
-      <div class="logo-mask">Coucou !</div>
-    </div>
+    <!-- Élément où Odometer va afficher le chiffre -->
+    <div class="odometer" id="odometer"></div>
 
-    <script src="granim.min.js"></script>
-    <script src="test.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const targetNumber = 0; // Chiffre cible à atteindre (en sens inverse)
+        const duration = 2000; // Durée totale de l'animation en millisecondes
+        const intervalTime = 10; // Interval de mise à jour en millisecondes
+
+        const odometerElement = document.getElementById("odometer");
+
+        let currentNumber = 1000; // Valeur initiale du compteur
+        let step = Math.ceil(
+          (currentNumber - targetNumber) / (duration / intervalTime)
+        );
+
+        const intervalId = setInterval(function () {
+          currentNumber -= step;
+          if (currentNumber <= targetNumber) {
+            currentNumber = targetNumber;
+            clearInterval(intervalId);
+          }
+          odometerElement.textContent = currentNumber.toLocaleString(); // Affiche le nombre avec des séparateurs de milliers
+        }, intervalTime);
+      });
+    </script>
   </body>
 </html>
