@@ -12,6 +12,9 @@ body, h1, h2, nav, ul, li {
     line-height: 1.6;
     background-color: #f4f4f4;
   }
+  main{
+    height: 100%;
+  }
   
   /* NAVBAR */
   header {
@@ -98,24 +101,31 @@ body, h1, h2, nav, ul, li {
   
   .slide img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
   }
   
   .overlay {
     position: absolute;
-    bottom: 0;
-    background: var(--overlay-bg-color);
-    color: var(--overlay-text-color);
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0;
-    transition: var(--overlay-transition);
-    border-radius: var(--border-radius);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-left: 50px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 1.2rem;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 10;
+  }
+
+  .overlay p{
+    width: 90%;
+    z-index: 50;
   }
   
   .slide:hover .overlay {
@@ -488,77 +498,44 @@ body, h1, h2, nav, ul, li {
 
 /* FOOTER */
 
-  footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    padding: 1rem;
-    background: #a86454;
-    color: #fff;
-  }
-  
-  .footer-logo  {
-    height: 50px;
-  }
-  
-  footer ul {
-    display: flex;
-  }
-  
-  footer ul li {
-    margin-left: 1.5rem;
-  }
-  
-  footer ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s;
-  }
-  
-  footer ul li a:hover {
-    color: #ff6347;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  
-  #gradientSection {
-    height: 100vh; /* Hauteur à 100% de la fenêtre visible */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative; /* Position relative pour positionner le contenu */
-  }
-  
-  #granimCanvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Mettre en arrière-plan */
-  }
-  
-  .content {
-    text-align: center;
-    color: white;
-    z-index: 1; /* Au-dessus du canvas */
-  }
-  
-  .content h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-  
-  .content p {
-    font-size: 1.5rem;
-  }
-  
-      
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  padding: 1rem;
+  background: #a86454;
+  color: #fff;
+}
+
+.footer-logo {
+  height: 50px;
+}
+
+footer ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer ul li {
+  margin-left: 1.5rem;
+}
+
+footer ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 2rem; /* Augmentation de la taille des icônes */
+  transition: color 0.3s;
+}
+
+footer ul li a:hover {
+  color: #ff6347; 
+}
+
+footer ul li p {
+  margin: 0;
+}
 

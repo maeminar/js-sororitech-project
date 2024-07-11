@@ -1,19 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var granimInstance = new Granim({
-    element: "#granimCanvas",
-    direction: "diagonal",
-    states: {
-      "default-state": {
-        gradients: [
-          ["#EB3349", "#F45C43"], // Rouge à orange
-          ["#FF8008", "#FFC837"], // Orange à jaune
-          ["#4CB8C4", "#3CD3AD"], // Cyan à vert
-        ],
-        transitionSpeed: 3000, // Transition plus lente
-      },
-    },
-  });
-
   const IMG = document.querySelectorAll(".image-container");
 
   IMG.forEach(function (container) {
@@ -75,7 +60,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const overlayElement = document.createElement("div");
     overlayElement.className = "overlay";
-    overlayElement.textContent = description;
+    const textElement = document.createElement("p");
+    textElement.textContent = description;
+
+    overlayElement.append(textElement);
 
     SLIDE_ELEMENT.append(IMG_ELEMENT, overlayElement);
 
@@ -136,7 +124,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }, intervalTime);
   }
 
-  createReverseOdometer("odometer1", 100, 17, 4000);
-  createReverseOdometer("odometer2", 100, 6, 2000);
-  createReverseOdometer("odometer3", 100, 23, 2000);
+  const CARD = document.getElementById("last_section").getBoundingClientRect();
+  console.log(CARD.top);
+  let bool = true;
+
+  document.addEventListener("scroll", function () {
+    const scrollTop = window.scrollY;
+    if (CARD.top <= scrollTop && bool) {
+      createReverseOdometer("odometer1", 100, 17, 4000);
+      createReverseOdometer("odometer2", 100, 6, 2000);
+      createReverseOdometer("odometer3", 100, 23, 2000);
+      bool = false;
+    }
+  });
 });
