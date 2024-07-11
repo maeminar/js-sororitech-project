@@ -522,7 +522,43 @@ body, h1, h2, nav, ul, li {
     color: #ff6347;
   }
   
-  .parallax-container {
-    height: "500px";
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
   }
+  
+  #gradientSection {
+    height: 100vh; /* Hauteur à 100% de la fenêtre visible */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Position relative pour positionner le contenu */
+  }
+  
+  #granimCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Mettre en arrière-plan */
+  }
+  
+  .content {
+    text-align: center;
+    color: white;
+    z-index: 1; /* Au-dessus du canvas */
+  }
+  
+  .content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .content p {
+    font-size: 1.5rem;
+  }
+  
       
+
