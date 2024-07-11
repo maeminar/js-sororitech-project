@@ -415,28 +415,65 @@ body, h1, h2, nav, ul, li {
 
 .accordeon_item {
   margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.accordeon_item:hover {
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.15);
 }
 
 .accordeon_header {
-  background-color: #cbcdd8;
-  padding: 15px;
+  background-color: #bdbcd1;
+  color: white;
+  padding: 15px 20px;
   cursor: pointer;
   font-weight: 600;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .accordeon_content {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s ease;
+  background-color: #f9f9f9;
+  padding: 0 20px;
+}
+
+.accordeon_content img {
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0;
+  border-radius: 8px;
 }
 
 .accordeon_content p {
   margin: 0;
-  padding: 100px;
+  padding: 20px 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+.accordeon_content a {
+  color: #6c63ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.accordeon_content a:hover {
+  text-decoration: underline;
 }
 
 .accordeon_item.active .accordeon_content {
-  max-height: 1000px;
+  max-height: 1000px; /* Adjust based on your content length */
+  padding: 20px;
 }
 
 .myFirstChart {

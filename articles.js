@@ -6,11 +6,11 @@ document.addEventListener("DOMContentLoaded", function () {
   new Chart(ctx, {
     type: "bar",
     data: {
-      labels: ["2017", "2019", "2021", "2022", "2023"],
+      labels: ["1964", "1984", "2021"],
       datasets: [
         {
           label: "Pourcentage",
-          data: [27, 30, 33, 34, 35],
+          data: [11, 16446, 41889],
           borderWidth: 1,
           backgroundColor: "#a86494",
         },
