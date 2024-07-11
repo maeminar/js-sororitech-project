@@ -476,6 +476,7 @@ body, h1, h2, nav, ul, li {
   padding: 20px;
 }
 
+
 .myFirstChart {
   height: 50vh;
   width: 50vw; 
@@ -521,4 +522,7 @@ body, h1, h2, nav, ul, li {
     color: #ff6347;
   }
   
- 
+  .parallax-container {
+    height: "500px";
+  }
+      
