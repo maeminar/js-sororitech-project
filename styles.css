@@ -12,14 +12,15 @@ body, h1, h2, nav, ul, li {
     line-height: 1.6;
     background-color: #f4f4f4;
   }
-  main{
+  
+  main {
     min-height: 70vh;
   }
   
   /* NAVBAR */
   header {
     background: #a86454;
-    color: #fff;
+    color: #e7d9d9;
     padding: 1rem 0;
   }
 
@@ -57,7 +58,7 @@ body, h1, h2, nav, ul, li {
   
   h1 {
     text-align: center;
-    margin: 2rem 0;
+    margin: 1.5rem 0;
     color: #333;
   }
   
@@ -148,7 +149,7 @@ body, h1, h2, nav, ul, li {
   /* FORMULAIRE*/
 .form {
     max-width: 600px;
-    margin: 2rem auto;
+    margin: 1.5rem auto;
     padding: 1rem;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

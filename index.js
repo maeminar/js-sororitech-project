@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       src: "img/image1.jpg",
       description:
-        "Travailler dans la tech m'a offert des opportunités incroyables de croissance et d'innovation. J'adore résoudre des problèmes complexes et créer des solutions qui impactent positivement la vie des gens. Clara, développeuse logiciel",
+        "Travailler dans la tech m'a offert des opportunités incroyables de croissance et d'innovation. J'adore résoudre des problèmes complexes et créer des solutions qui impactent positivement la vie des gens.",
     },
     {
       src: "img/image2.jpg",
