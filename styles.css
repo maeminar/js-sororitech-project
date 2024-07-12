@@ -13,7 +13,7 @@ body, h1, h2, nav, ul, li {
     background-color: #f4f4f4;
   }
   main{
-    height: 100%;
+    min-height: 70vh;
   }
   
   /* NAVBAR */
@@ -341,6 +341,7 @@ body, h1, h2, nav, ul, li {
   justify-content: flex-start;
   padding: 2rem;
   width: 300px;
+  height: 300px;
   background-color: white;
   transition: transform 0.2s, box-shadow 0.3s;
 }
